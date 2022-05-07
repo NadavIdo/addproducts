@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+    .important { color: #336699; }
+  </style>
+{% endblock %}
+{% block content %}
+  <h1>My Cart ({{ (products|length) }})</h1>
+  <p class="important">
+   
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for item in products %}
+    <div class="col">
+        <div class="card h-100">
+           <a href="{{url_for('download_file', name=item[0])}}">
+              <img src="/uploads/{{item[2]}}" class="card-img-top" style="height: 250px;" alt="...">
+            </a>
+            <div class="card-body">
+                <h5 class="card-title">Desc: {{item[0]}}</h5>
+                <p class="card-text"> </p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">price {{item[1]}} 
+                <a href="/remove/{{item[3]}}"   class="btn btn-danger" >Remove</a>
+                </small>
+                
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+

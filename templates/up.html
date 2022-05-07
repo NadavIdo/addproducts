@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<!doctype html>
+    <title>Upload new File</title>
+    <h1>Upload new File aaa</h1>
+    <form method=post enctype=multipart/form-data>
+      Img<input type=file name=file>
+      Price <input name=price>
+      Desc <input  name=desc>
+      <input type=submit value=Upload>
+    </form>
+    {% endblock %}
